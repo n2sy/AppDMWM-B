@@ -1,0 +1,22 @@
+<input type="text" [(ngModel)]="section" >
+
+<p>
+  Cours Angular pour {{ section }}
+</p>
+
+<div [hidden]="hd">
+
+  Test de Property Binding
+
+</div>
+
+<button (click)="swipeHidden()">
+  Swipe Hidden
+</button>
+
+
+
+<div class="cl" [style.backgroundColor]="color">
+Test 2 Property
+
+</div>
