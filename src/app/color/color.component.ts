@@ -19,4 +19,8 @@ export class ColorComponent implements OnInit {
     this.hd = !this.hd;
   }
 
+  traitementDuPere(m) {
+    alert(m)
+  }
+
 }
