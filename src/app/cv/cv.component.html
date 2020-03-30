@@ -1,10 +1,14 @@
-<div class="container" [style.backgroundColor]="'pink'">
+<app-test-dir [bgcolor]="'blue'" [cl]="'yellow'" ></app-test-dir>
+
+<div class="container">
   <div class="row">
     <div class="col-md-5">
-      <app-liste></app-liste>
+      <app-liste [listePersonnes]="listePersonnes"
+      (sendPers) = "RecupPersonne($event)"
+      ></app-liste>
     </div>
     <div class="col-md-7">
-      <app-detail></app-detail>
+      <app-detail *ngIf="selectedPers" [pers] = "selectedPers" ></app-detail>
     </div>
   </div>
 </div>

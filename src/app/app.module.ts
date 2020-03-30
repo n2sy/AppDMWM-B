@@ -9,7 +9,11 @@ import { ChildComponent } from './child/child.component';
 import { CvComponent } from './cv/cv.component';
 import { ListeComponent } from './liste/liste.component';
 import { ItemComponent } from './item/item.component';
-import { DetailComponent } from './detail/detail.component'
+import { DetailComponent } from './detail/detail.component';
+import { CustomDirectiveDirective } from './custom-directive.directive';
+import { TestDirComponent } from './test-dir/test-dir.component';
+import { MiniWordComponent } from './mini-word/mini-word.component';
+import { TestClassComponent } from './test-class/test-class.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +23,11 @@ import { DetailComponent } from './detail/detail.component'
     CvComponent,
     ListeComponent,
     ItemComponent,
-    DetailComponent
+    DetailComponent,
+    CustomDirectiveDirective,
+    TestDirComponent,
+    MiniWordComponent,
+    TestClassComponent
   ],
   imports: [
     BrowserModule,

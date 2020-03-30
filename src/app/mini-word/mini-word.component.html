@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="cl"  [ngStyle]="{
+    backgroundColor : bgcolor,
+    color : cl,
+    fontSize : size,
+    fontFamily : font
+  }
+  ">
+    Cours du soir
+  </div>
+  Background Color : <br>
+  <input type="text" class="form-control" [(ngModel)]="bgcolor">
+  Text Color : <br>
+  <input type="text" class="form-control" [(ngModel)]="cl">
+  Text Size : <br>
+  <input #s type="number" class="form-control" (change)="changeSize(s.value)">
+  Font Family : <br>
+  <select [(ngModel)]="font">
+    <option *ngFor="let f of listeFonts" [value]="f">{{f}}</option>
+  </select>
+
+</div>

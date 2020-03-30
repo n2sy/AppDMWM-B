@@ -1,7 +1,6 @@
-<ol class="list-group-item">
-  <app-item></app-item>
-  <app-item></app-item>
-
-  <app-item></app-item>
+<ol>
+  <app-item *ngFor="let p of listePersonnes" [personne]="p" (click)="sendToCv(p)"></app-item>
+  <!-- <app-item [personne]="listePersonnes[1]" (click)="sendToCv(listePersonnes[1])"></app-item>
+  <app-item [personne]="listePersonnes[2]" (click)="sendToCv(listePersonnes[2])"></app-item> -->
 
 </ol>

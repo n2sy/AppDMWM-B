@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Personne } from '../model/personne';
 
 @Component({
@@ -8,14 +8,18 @@ import { Personne } from '../model/personne';
 })
 export class CvComponent implements OnInit {
   listePersonnes : Personne[];
+  selectedPers : Personne;
   constructor() { }
 
   ngOnInit() {
     this.listePersonnes = [
-      new Personne(1, "nidhal", "jelassi", 35, "enseignant", "nidhal.jpg"),
-      new Personne(2, "nidhal", "jelassi", 35, "enseignant", "nidhal.jpg"),
-      new Personne(3, "nidhal", "jelassi", 35, "enseignant")
+      new Personne(1, "nidhal", "jelassi", 35, "enseignant"),
+      new Personne(2, "bart", "simpson", 25, "élève", "bart.jpeg"),
+      new Personne(3, "marge", "simpson", 50, "ingénieur", "marge.jpg")
     ]
   }
 
+  RecupPersonne(p) {
+    this.selectedPers = p;
+  }
 }
