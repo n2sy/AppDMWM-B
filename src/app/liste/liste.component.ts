@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Personne } from '../model/personne';
+import { CvPersonneService } from '../cv-personne.service';
 
 @Component({
   selector: 'app-liste',
@@ -7,11 +8,13 @@ import { Personne } from '../model/personne';
   styleUrls: ['./liste.component.css']
 })
 export class ListeComponent implements OnInit {
-  @Input() listePersonnes : Personne[];
+  listePersonnes : Personne[];
   @Output() sendPers = new EventEmitter<Personne>()
-  constructor() { }
+  
+  constructor(private cvPersonne : CvPersonneService) { }
 
   ngOnInit() {
+    this.listePersonnes = this.cvPersonne.getListePersonne();
   }
 
   sendToCv(p : Personne) {

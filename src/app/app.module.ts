@@ -13,7 +13,8 @@ import { DetailComponent } from './detail/detail.component';
 import { CustomDirectiveDirective } from './custom-directive.directive';
 import { TestDirComponent } from './test-dir/test-dir.component';
 import { MiniWordComponent } from './mini-word/mini-word.component';
-import { TestClassComponent } from './test-class/test-class.component'
+import { TestClassComponent } from './test-class/test-class.component';
+import { NoImagePipe } from './no-image.pipe'
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { TestClassComponent } from './test-class/test-class.component'
     CustomDirectiveDirective,
     TestDirComponent,
     MiniWordComponent,
-    TestClassComponent
+    TestClassComponent,
+    NoImagePipe
   ],
   imports: [
     BrowserModule,

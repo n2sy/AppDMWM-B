@@ -9,7 +9,7 @@
     Cours du soir
   </div>
   Background Color : <br>
-  <input type="text" class="form-control" [(ngModel)]="bgcolor">
+  <input type="text" class="form-control" [ngModel]="bgcolor" (ngModelChange)="bgcolor = $event" >
   Text Color : <br>
   <input type="text" class="form-control" [(ngModel)]="cl">
   Text Size : <br>
