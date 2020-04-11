@@ -1,0 +1,26 @@
+<ul class="nav nav-tabs">
+  <!-- <li class="nav-item">
+    <a class="nav-link active" routerLink="">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="cv" >CV Manager</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="color">Color</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" routerLink="msword">Ms-Word</a>
+  </li> -->
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" >Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['cv']" routerLinkActive="active">CV Manager</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['color']" routerLinkActive="active">Color</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="['msword']" routerLinkActive="active">Ms-Word</a>
+  </li>
+</ul>

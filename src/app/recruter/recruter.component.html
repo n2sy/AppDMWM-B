@@ -1,0 +1,7 @@
+<h3 *ngIf="listeRecrues.length !=0" >Liste des recrues</h3>
+
+<ol>
+  <li class=list-group-item *ngFor="let r of listeRecrues">
+  <img src="../../assets/{{r.path | noImage}}"> {{ r.prenom }} {{ r.nom }}
+  </li>
+</ol>

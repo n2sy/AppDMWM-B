@@ -21,4 +21,9 @@ export class ListeComponent implements OnInit {
     this.sendPers.emit(p);
   }
 
+  consoleListe() {
+    console.log(this.cvPersonne.getListePersonne());
+  }
+  
+
 }

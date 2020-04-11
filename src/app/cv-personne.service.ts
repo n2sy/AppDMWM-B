@@ -18,5 +18,13 @@ export class CvPersonneService {
     return this.listePersonnes;
   }
 
+  addPersonne() {
+    this.listePersonnes.push(new Personne(1, "New", "Personne", 35, "enseignant"))
+  }
+
+  getPersonneById(id) : Personne {
+    return this.listePersonnes.find((p) => p.id == id);
+  }
+
 
 }

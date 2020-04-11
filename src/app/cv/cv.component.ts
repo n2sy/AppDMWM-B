@@ -14,10 +14,15 @@ export class CvComponent implements OnInit {
   constructor(private cvPersonne : CvPersonneService) { }
 
   ngOnInit() {
-    this.cvPersonne.getListePersonne();
+    this.listePersonnes = this.cvPersonne.getListePersonne();
   }
 
   RecupPersonne(p) {
     this.selectedPers = p;
+  }
+
+  addPerson() {
+    this.cvPersonne.addPersonne();
+    console.log(this.cvPersonne.getListePersonne());
   }
 }
