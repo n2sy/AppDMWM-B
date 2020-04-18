@@ -21,6 +21,10 @@ import { HomeComponent } from "./home/home.component";
 import { ROUTING } from "./app.routing";
 import { NavbarComponent } from './navbar/navbar.component';
 import { InfosComponent } from './infos/infos.component';
+import { UpdateComponent } from './update/update.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { AddComponent } from './add/add.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +45,10 @@ import { InfosComponent } from './infos/infos.component';
     HomeComponent,
     NavbarComponent,
     InfosComponent,
+    UpdateComponent,
+    NotFoundComponent,
+    AddComponent,
+    LoginComponent,
   ],
   imports: [BrowserModule, FormsModule, ROUTING],
   providers: [],

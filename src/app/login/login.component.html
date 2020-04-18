@@ -1,0 +1,51 @@
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" >
+  <!-- <label for="pseudo"></label>
+  <input #pseudo="ngModel" ngModel required minlength="6" pattern="Nidhal Jelassi" type="text" class="form-control" id="pseudo" name="pseudo">
+  <div class="alert alert-danger" *ngIf="pseudo.invalid && pseudo.touched">
+    <p *ngIf="pseudo.errors.required" >This Field is required</p>
+    <p *ngIf="pseudo.errors.minlength" >This Field must be at least 6 characters</p>
+    <p *ngIf="pseudo.errors.pattern" >This Field must obly be Nidhal Jelassi</p>
+  </div>
+
+  <hr> -->
+  <hr>
+  <!-- <div id="credentials" ngModelGroup="credentials" #cred="ngModelGroup"> -->
+  <label for="login">Login</label>
+  <input #name="ngModel" ngModel required email type="text" class="form-control" id="login" name="login">
+  <div class="alert alert-danger" *ngIf="name.invalid && name.dirty">Must be an email address</div>
+
+  <label for="pwd">Password</label>
+  <input ngModel required type="text" class="form-control" id="pwd" name="password">
+<!-- </div> -->
+
+<!-- <div class="alert alert-danger" *ngIf="cred.invalid && cred.dirty">Invalid Credentials</div> -->
+
+  <br>
+
+  <!-- <button class="btn btn-primary" (click)="onSubmit(f)">Sign in</button> -->
+
+  <hr>
+  <!-- <label for="section"></label>
+  <select class="form-control" [ngModel]="defaultValue" name="section" id="section">
+    <option value="gl">Génie Logiciel</option>
+    <option value="dsen">Data Science</option>
+    <option value="dmwm">Web et Mobile</option>
+  </select> -->
+
+  <!-- <br>
+  <label for="classroom">Classroom</label>
+  <input [(ngModel)]="clr" type="text" class="form-control" id="classroom" name="classroom">
+  <br>
+  <label> {{ clr }} </label> -->
+  <hr>
+  <pre>
+    {{ f.value | json }}
+  </pre>
+  <button class="btn btn-primary">Sign in</button>
+  <button class="btn btn-warning" (click)="onReset(f)">Reset</button>
+  <br>
+  <button class="btn btn-danger" (click)="randomPwd(f)">Random Password</button>
+  <br>
+  <button class="btn btn-info" (click)="randomPwdTwo(f)">Random Password</button>
+</form>
+
