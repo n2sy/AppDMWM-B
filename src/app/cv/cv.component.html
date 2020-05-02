@@ -4,7 +4,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-5">
-      <app-liste 
+      <app-liste [listePersonnes]= "listePersonnes"
       (sendPers) = "RecupPersonne($event)"
       ></app-liste>
     </div>

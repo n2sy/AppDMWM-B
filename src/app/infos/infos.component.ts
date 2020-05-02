@@ -20,8 +20,18 @@ export class InfosComponent implements OnInit {
 
     this.activatedRoute.params.subscribe(
       (params : Params) => {
-        this.pers = this.cvService.getPersonneById(params['id']);
-          console.log(params['id']);
+        //this.pers = this.cvService.getPersonneById(params['id']);
+        this.cvService.getPersonneByIdAPI(params['id']).subscribe(
+          (response : Personne) => {
+            this.pers = response;
+          },
+          (error) => {
+            console.log("Error with ByID !")
+          }
+        )        
+        },
+        (error) => {
+          console.log("Error with Params...");
         }
     );
 
@@ -30,6 +40,24 @@ export class InfosComponent implements OnInit {
   updatePerson() {
     console.log('update personne')
     this.router.navigate(['cv/edit', this.pers.id])
+  }
+
+  deletePerson() {
+    if(confirm('Voulez-vous vraiment supprimer cette personne ?'))
+    {
+      //this.cvService.deletePersonne(this.pers);
+      this.cvService.deletePersonneAPI(this.pers['id']).subscribe(
+        (response) => {
+          console.log("DELETE Successful");
+          this.router.navigate(['cv']);
+        },
+        (error) => {
+          console.log(error);
+          
+        }
+      )
+      
+    }
   }
 
 }

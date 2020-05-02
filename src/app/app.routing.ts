@@ -9,19 +9,22 @@ import { UpdateComponent } from './update/update.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AddComponent } from './add/add.component';
 import { LoginComponent } from './login/login.component';
+import { LoginGuard } from './login.guard';
+import { LogoutGuard } from './logout.guard';
 
 const DWMW_routes : Routes = [
-    {path:'', component:HomeComponent},
+    {path:'', redirectTo:'home', pathMatch:'prefix'},
+    {path:'home', component:HomeComponent},
     {path:'cv' , children:[
         {path:'', component: CvComponent},
         {path:'edit/:id', component:UpdateComponent},
-        {path:':id', component:InfosComponent},
-        {path:'add', component: AddComponent}
+        {path:'add', component: AddComponent, canActivate: [LoginGuard]},
+        {path:':id', component:InfosComponent}
     ]},
     {path:'msword', component:MiniWordComponent},
     {path:'color', component:ColorComponent},
     {path:'color/:cl', component:ColorComponent},
-    {path:'login', component:LoginComponent},
+    {path:'login', component:LoginComponent, canActivate:[LogoutGuard]},
     {path:'not-found', component: NotFoundComponent},
     {path:'**', redirectTo: 'not-found'}
 

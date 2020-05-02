@@ -25,6 +25,11 @@ import { UpdateComponent } from './update/update.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AddComponent } from './add/add.component';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpComponent } from './http/http.component';
+import { loginInterceptorProvider } from './login.interceptor';
+import { LogoutGuard } from './logout.guard';
+import { LoginGuard } from './login.guard';
 
 @NgModule({
   declarations: [
@@ -49,9 +54,11 @@ import { LoginComponent } from './login/login.component';
     NotFoundComponent,
     AddComponent,
     LoginComponent,
+    HttpComponent,
   ],
-  imports: [BrowserModule, FormsModule, ROUTING],
-  providers: [],
+  imports: [BrowserModule, FormsModule, ROUTING, HttpClientModule],
+ 
+  providers: [loginInterceptorProvider, LoginGuard, LogoutGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

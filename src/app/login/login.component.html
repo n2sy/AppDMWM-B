@@ -1,4 +1,6 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f)" >
+  <div class="alert alert-danger" *ngIf="error" >Invalid Credentials</div>
+
   <!-- <label for="pseudo"></label>
   <input #pseudo="ngModel" ngModel required minlength="6" pattern="Nidhal Jelassi" type="text" class="form-control" id="pseudo" name="pseudo">
   <div class="alert alert-danger" *ngIf="pseudo.invalid && pseudo.touched">
@@ -10,8 +12,8 @@
   <hr> -->
   <hr>
   <!-- <div id="credentials" ngModelGroup="credentials" #cred="ngModelGroup"> -->
-  <label for="login">Login</label>
-  <input #name="ngModel" ngModel required email type="text" class="form-control" id="login" name="login">
+  <label for="login">Login / Email</label>
+  <input #name="ngModel" ngModel required email type="text" class="form-control" id="login" name="email">
   <div class="alert alert-danger" *ngIf="name.invalid && name.dirty">Must be an email address</div>
 
   <label for="pwd">Password</label>
@@ -37,15 +39,15 @@
   <input [(ngModel)]="clr" type="text" class="form-control" id="classroom" name="classroom">
   <br>
   <label> {{ clr }} </label> -->
-  <hr>
+  <!-- <hr>
   <pre>
     {{ f.value | json }}
-  </pre>
+  </pre> -->
   <button class="btn btn-primary">Sign in</button>
   <button class="btn btn-warning" (click)="onReset(f)">Reset</button>
-  <br>
+  <!-- <br>
   <button class="btn btn-danger" (click)="randomPwd(f)">Random Password</button>
   <br>
-  <button class="btn btn-info" (click)="randomPwdTwo(f)">Random Password</button>
+  <button class="btn btn-info" (click)="randomPwdTwo(f)">Random Password</button> -->
 </form>
 
