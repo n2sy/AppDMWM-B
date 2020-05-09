@@ -12,4 +12,13 @@ export class AuthService {
   seConnecter(credentials) {
     return this.http.post(this.link, credentials);
   }
+
+  isLogged() {
+    const token = localStorage.getItem('token');
+    return (!!token);
+  }
+
+  seDeconnecter() {
+    localStorage.removeItem('token');
+  }
 }

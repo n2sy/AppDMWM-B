@@ -9,10 +9,16 @@ import { Observable } from 'rxjs';
 export class CvPersonneService {
   link = "http://localhost:3000/api/personnes";
   listePersonnes = [
-    new Personne(1, "nidhal", "jelassi", 35, "enseignant", "nidhal.jpg"),
-    new Personne(2, "bart", "simpson", 25, "élève", "bart.jpeg"),
-    new Personne(3, "marge", "simpson", 50, "ingénieur", "marge.jpg")
-  ]
+    new Personne(1, "nidhal", "jelassi", 35, "enseignant", "nidhal.jpg", "candidat"),
+    new Personne(2, "bart", "simpson", 25, "élève", "bart.jpeg", "candidat"),
+    new Personne(3, "marge", "simpson", 50, "ingénieur", "marge.jpg", "refuse"),
+    new Personne(4, "homer", "simpson", 50, "comptable", "homer.jpg", "recrute"),
+    new Personne(3, "houssem", "kabboudi", 25, "etudiant", "avatar.jpg", "recrute")
+  ];
+
+  filterPersonne(tab, property) {
+    return tab.filter((c) => c.status == property);
+  }
 
   constructor(private http : HttpClient) { }
 
@@ -43,6 +49,13 @@ export class CvPersonneService {
   getPersonneByIdAPI(id) : Observable<Personne> {
     return this.http.get<Personne>(`${this.link}/${id}`) 
     //return this.http.get<Personne>(this.link + '/' + id`) 
+  }
+
+  getPersonnesByName(name : string) : Observable<Personne[]>  {
+    const filterValue = `{"where":{"prenom":{"like":"%${name}%"}}}`;
+    const p = new HttpParams().set('filter', filterValue);
+
+    return this.http.get<Personne[]>(this.link, {params : p});
   }
 
   getPersonneById(id) : Personne {

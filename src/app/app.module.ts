@@ -30,6 +30,9 @@ import { HttpComponent } from './http/http.component';
 import { loginInterceptorProvider } from './login.interceptor';
 import { LogoutGuard } from './logout.guard';
 import { LoginGuard } from './login.guard';
+import { SearchComponent } from './search/search.component';
+import { RhManagerComponent } from './rh-manager/rh-manager.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -55,8 +58,10 @@ import { LoginGuard } from './login.guard';
     AddComponent,
     LoginComponent,
     HttpComponent,
+    SearchComponent,
+    RhManagerComponent,
   ],
-  imports: [BrowserModule, FormsModule, ROUTING, HttpClientModule],
+  imports: [BrowserModule, FormsModule, ROUTING, HttpClientModule, DragDropModule],
  
   providers: [loginInterceptorProvider, LoginGuard, LogoutGuard],
   bootstrap: [AppComponent],

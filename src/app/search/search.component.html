@@ -1,0 +1,12 @@
+<div class="container alert alert-info">
+  <input #inputsearch type="text" class="form-control" (keyup)="searchResult(inputsearch)">
+</div>
+
+
+<div class="container">
+  <ol *ngFor="let p of listPersonne">
+    <li class="list-group-item" (click)="onSelectPerson(p)">
+      <img src="../../assets/{{p.path | noImage}}"> {{ p.prenom }} {{ p.nom }}
+    </li>
+  </ol>
+</div>

@@ -11,17 +11,19 @@ import { AddComponent } from './add/add.component';
 import { LoginComponent } from './login/login.component';
 import { LoginGuard } from './login.guard';
 import { LogoutGuard } from './logout.guard';
+import { RhManagerComponent } from './rh-manager/rh-manager.component';
 
 const DWMW_routes : Routes = [
     {path:'', redirectTo:'home', pathMatch:'prefix'},
     {path:'home', component:HomeComponent},
     {path:'cv' , children:[
         {path:'', component: CvComponent},
-        {path:'edit/:id', component:UpdateComponent},
+        {path:'edit/:id', component:UpdateComponent, canActivate: [LoginGuard]},
         {path:'add', component: AddComponent, canActivate: [LoginGuard]},
         {path:':id', component:InfosComponent}
     ]},
     {path:'msword', component:MiniWordComponent},
+    {path:'rh', component:RhManagerComponent},
     {path:'color', component:ColorComponent},
     {path:'color/:cl', component:ColorComponent},
     {path:'login', component:LoginComponent, canActivate:[LogoutGuard]},

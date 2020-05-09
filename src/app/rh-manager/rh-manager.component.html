@@ -1,0 +1,67 @@
+<div class="modal fade" [ngClass]="{'show' : showValue}" id="exampleModal" tabindex="-1" 
+role="dialog" aria-labelledby="exampleModalLabel" [ngStyle]="{'display' : displayValue}"
+ aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true" (click)="hideModal()">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal"  (click)="hideModal()">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4">
+    <h2>Candidates</h2>
+    <div cdkDropList 
+    #candList="cdkDropList" 
+    [cdkDropListData]="Candidates" 
+    [cdkDropListConnectedTo]="[enrollList, firedList]"
+      class="candidat example-list" 
+      (cdkDropListDropped)="drop($event)">
+      <div class="alert alert-primary" *ngFor="let c of Candidates" cdkDrag [cdkDragData]="c">
+        <img src="assets/{{c.path | noImage}}"> {{c.prenom}} {{c.nom}}
+      </div>
+      <button class="btn btn-primary" (click)="showModal()">Add...</button>
+      <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Add Candidat
+      </button> -->
+    </div>
+  </div>
+<div class="col-md-4">
+  <h2>Enrolled</h2>
+  <div 
+  cdkDropList 
+  #enrollList="cdkDropList" 
+  [cdkDropListData]="Enrolled" 
+  [cdkDropListConnectedTo]="[candList, firedList]"
+    class="recrute example-list" 
+    (cdkDropListDropped)="drop($event)">
+    <div class="alert alert-success" *ngFor="let e of Enrolled" cdkDrag [cdkDragData]="e">
+      <img src="assets/{{e.path | noImage}}"> {{e.prenom}} {{e.nom}}
+    </div>
+  </div>
+</div>
+<div class="col-md-4">
+  <h2>Fired</h2>
+  <div 
+  cdkDropList 
+  #firedList="cdkDropList" 
+  [cdkDropListData]="Fired" 
+  [cdkDropListConnectedTo]="[candList, enrollList]"
+    class="refuse example-list" (cdkDropListDropped)="drop($event)">
+    <div class="alert alert-danger" *ngFor="let f of Fired" cdkDrag [cdkDragData]="f">
+      <img src="assets/{{f.path | noImage}}"> {{f.prenom}} {{f.nom}}
+    </div>
+  </div>
+</div>
+</div>
